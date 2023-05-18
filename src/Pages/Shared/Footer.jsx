@@ -1,4 +1,4 @@
-import React from 'react';
+
 import fav from '../../assets/fav.svg'
 
 const Footer = () => {

@@ -1,10 +1,17 @@
+import Banner from "./Banner";
+import Gallery from "./Gallery";
+import OfferSection from "./OfferSection";
+import SubCategory from "./SubCategory";
 
 
 const Home = () => {
     return (
-        <div>
-            This is homepage
-        </div>
+        <>
+            <Banner></Banner>
+            <Gallery></Gallery>
+            <SubCategory></SubCategory>
+            <OfferSection></OfferSection>
+        </>
     );
 };
 
