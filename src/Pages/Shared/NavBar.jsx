@@ -1,8 +1,18 @@
-
+import { useContext } from 'react';
+import { AuthContext } from '../../AuthProviders/AuthProviders';
 import logo from '../../assets/logo.svg'
 import { Link } from 'react-router-dom';
+import { FaUser } from 'react-icons/fa';
 
 const NavBar = () => {
+    const { user, logOutUser } = useContext(AuthContext);
+
+    if (user) {
+        const displayName = user.displayName;
+        const email = user.email;
+        const photoURL = user.photoURL;
+    }
+
     const menuItems = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/alltoys">All Toys</Link></li>
@@ -28,9 +38,14 @@ const NavBar = () => {
                     {menuItems}
                 </ul>
             </div>
-            <div className="navbar-end gap-4">
-                <a className="btn">User</a>
-                <a className="btn">Login</a>
+            <div className="navbar-end gap-2">
+                {user ? <>
+                    <button onClick={() => logOutUser()} className=' hidden lg:inline-flex justify-center items-center text-center border border-teal-900  hover:bg-teal-900 hover:text-white py-2 px-4 duration-500 text-teal-950'>Logout</button>
+                    <div className='bg-gray-100 rounded-full p-1 '>
+                        {user.photoURL ? <img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" title={user?.displayName} /> : <FaUser className='w-10 h-10 rounded-full' title={user?.displayName} />}
+                    </div>
+                </> :
+                    <Link to='/login' className=' inline-flex items-center text-center border border-teal-900  hover:bg-teal-900 hover:text-white py-2 px-4 duration-500 text-teal-950'>Login</Link>}
             </div>
         </div>
     );
