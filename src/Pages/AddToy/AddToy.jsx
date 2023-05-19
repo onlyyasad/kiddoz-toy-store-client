@@ -1,10 +1,48 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../AuthProviders/AuthProviders";
 
 const AddToy = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const { user } = useContext(AuthContext);
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const onSubmit = data => {
+        if (data.sub_category === "Sports Car") {
+            data.sub_category_id = "a"
+        }
+        else if (data.sub_category === "Truck") {
+            data.sub_category_id = "b"
+        }
+        else if (data.sub_category === "Regular Car") {
+            data.sub_category_id = "c"
+        }
+        else if (data.sub_category === "Mini Police Car") {
+            data.sub_category_id = "d"
+        }
+        else if (data.sub_category === "Mini Fire Truck") {
+            data.sub_category_id = "e"
+        }
 
-    console.log(watch("example")); // watch input value by passing the name of it
+        console.log(data)
+
+        fetch('http://localhost:5000/toys', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+                if(result.insertedId){
+                    alert("Toy Added Successfully!")
+                    reset()
+                }
+            })
+
+    };
+
+
 
     return (
         <div className="bg-teal-50 py-20 mx-auto">
@@ -21,11 +59,11 @@ const AddToy = () => {
                         {errors.name && <span>This field is required</span>}
                     </div>
                     <div>
-                        <input className="p-4 w-full" defaultValue="Your Name" {...register("seller_name", { required: true })} />
+                        <input className="p-4 w-full" value={user?.displayName} {...register("seller_name", { required: true })} />
                         {errors.seller_name && <span>This field is required</span>}
                     </div>
                     <div>
-                        <input className="p-4 w-full" defaultValue="Your Email" {...register("seller_email", { required: true })} />
+                        <input className="p-4 w-full" value={user?.email} {...register("seller_email", { required: true })} />
                         {errors.seller_email && <span>This field is required</span>}
                     </div>
                     <div>
@@ -51,7 +89,7 @@ const AddToy = () => {
                     </div>
                 </div>
                 <div className="my-4">
-                    <textarea className="p-4 w-full" placeholder="Description" {...register("description" ,{ required: true })} />
+                    <textarea className="p-4 w-full" placeholder="Description" {...register("description", { required: true })} />
                     {errors.description && <span>This field is required</span>}
                 </div>
                 <input className="p-4 w-full border-2 border-teal-500 font-bold rounded-[50px] hover:bg-teal-500 duration-500" type="submit" value="Add Toy" />
