@@ -8,16 +8,16 @@ const NavBar = () => {
     const { user, logOutUser } = useContext(AuthContext);
 
     if (user) {
-        const displayName = user.displayName;
-        const email = user.email;
-        const photoURL = user.photoURL;
+        // const displayName = user.displayName;
+        // const email = user.email;
+        // const photoURL = user.photoURL;
     }
 
     const menuItems = <>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/alltoys">All Toys</Link></li>
-        <li><Link to="/mytoys">My Toys</Link></li>
-        <li><Link to="/addtoy">Add a Toy</Link></li>
+        <li><Link to="/allToys">All Toys</Link></li>
+        <li><Link to="/myToys">My Toys</Link></li>
+        <li><Link to="/addToy">Add a Toy</Link></li>
         <li><Link to="/blogs">Blogs</Link></li>
     </>
     return (

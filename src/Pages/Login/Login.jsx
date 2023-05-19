@@ -21,10 +21,10 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         loginUser(email, password)
-            .then(result => {
+            .then(() => {
                 form.reset();
                 navigate(from, { replace: true });
-                const loggedUser = result.user;
+                // const loggedUser = result.user;
 
             })
             .catch(error => setError(error.message))
@@ -32,8 +32,8 @@ const Login = () => {
 
     const handleGoogleLogin = () => {
         googleLogin()
-            .then(result => {
-                const user = result.user;
+            .then(() => {
+                // const user = result.user;
                 navigate(from, { replace: true });
             })
             .catch(error => console.log(error.message))
@@ -58,7 +58,7 @@ const Login = () => {
                             <input type="password" name='password' required placeholder="password" className="input input-bordered rounded-none" />
                             <label className="label gap-3">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                <Link to='/register' className="label-text-alt link link-hover">Don't have an Account? Register</Link>
+                                <Link to='/register' className="label-text-alt link link-hover">Don&apos;t have an Account? Register</Link>
                             </label>
                         </div>
                         {error && <label className="label">

@@ -2,7 +2,7 @@
 import { useTimer } from 'react-timer-hook';
 
 const OfferSection = () => {
-    const time = new Date();
+    const time = new Date("2023-6-25");
     time.setHours(time.getHours() + 2);
     const expiryTimestamp = time;
     
