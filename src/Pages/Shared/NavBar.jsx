@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     const menuItems = <>
-        <li><Link>Home</Link></li>
-        <li><Link>All Toys</Link></li>
-        <li><Link>My Toys</Link></li>
-        <li><Link>Add a Toy</Link></li>
-        <li><Link>Blogs</Link></li>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/alltoys">All Toys</Link></li>
+        <li><Link to="/mytoys">My Toys</Link></li>
+        <li><Link to="/addtoy">Add a Toy</Link></li>
+        <li><Link to="/blogs">Blogs</Link></li>
     </>
     return (
         <div className="navbar bg-teal-50">
