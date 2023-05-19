@@ -1,9 +1,11 @@
-import car1 from '../../assets/images/car1.png'
 
-const GalleryCard = () => {
+
+const GalleryCard = ({ car }) => {
+
+    const { img } = car;
     return (
-        <div className="card card-compact w-full bg-base-100">
-            <figure><img className='w-1/2' src={car1} alt="Shoes" /></figure>
+        <div className="flex justify-center h-28 bg-yellow-200 items-center hover:shadow-xl rounded-lg duration-500">
+            <img className='p-4 w-3/4 hover:scale-125 duration-500' src={img} alt="Car" />
         </div>
     );
 };

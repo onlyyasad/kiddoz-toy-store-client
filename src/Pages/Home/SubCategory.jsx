@@ -1,31 +1,67 @@
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
+import { useEffect, useState } from "react";
+import SubCategoryCard from "./SubCategoryCard";
+
 
 const SubCategory = () => {
+    const [cars, setCars] = useState([]);
+    const [active, setActive] = useState("All Cars");
+
+    useEffect(()=>{
+        fetch(`http://localhost:5000/toys/${active}`)
+        .then(res => res.json())
+        .then(data => {
+            setCars(data)
+        })
+    }, [active])
+
+    const handleActiveTab = (category) => {
+        setActive(category)
+    }
     return (
-        <div>
-            <h2>This is Category Area</h2>
-            <div>
-                <Tabs>
-                    <TabList>
-                        <Tab>All Cars</Tab>
-                        <Tab>Sports Car</Tab>
-                        <Tab>Regular Car</Tab>
-                        <Tab>Truck</Tab>
-                    </TabList>
-                    <TabPanel>
-                        <h2>All Cars Content Here</h2>
-                    </TabPanel>
-                    <TabPanel>
-                        <h2>Sports Car Content Here</h2>
-                    </TabPanel>
-                    <TabPanel>
-                        <h2>Regular Car Content Here</h2>
-                    </TabPanel>
-                    <TabPanel>
-                        <h2>Truck Content Here</h2>
-                    </TabPanel>
-                </Tabs>
+        <div className='my-20 px-8'>
+            <h2 className="my-8 text-3xl font-bold text-center">Shob By Category</h2>
+            <div className="mx-auto font-bold flex flex-col md:flex-row justify-between items-center w-full md:w-3/4">
+                <button
+                    onClick={() => handleActiveTab("All Cars")}
+                    className={`border-2 duration-500 border-teal-500 py-4 px-8 rounded-[50px] hover:bg-teal-500 ${active === "All Cars"? "bg-teal-500" : ""}`}
+                >
+                    All Cars
+                </button>
+                <button
+                    onClick={() => handleActiveTab("Sports Car")}
+                    className={`border-2 duration-500 border-teal-500 py-4 px-8 rounded-[50px] hover:bg-teal-500 ${active === "Sports Car"? "bg-teal-500" : ""}`}
+                >
+                    Sports Car
+                </button>
+                <button
+                    onClick={() => handleActiveTab("Regular Car")}
+                    className={`border-2 duration-500 border-teal-500 py-4 px-8 rounded-[50px] hover:bg-teal-500 ${active === "Regular Car"? "bg-teal-500" : ""}`}
+                >
+                    Regular Car
+                </button>
+                <button
+                    onClick={() => handleActiveTab("Truck")}
+                    className={`border-2 duration-500 border-teal-500 py-4 px-8 rounded-[50px] hover:bg-teal-500 ${active === "Truck"? "bg-teal-500" : ""}`}
+                >
+                    Truck
+                </button>
+                <button
+                    onClick={() => handleActiveTab("Mini Police Car")}
+                    className={`border-2 duration-500 border-teal-500 py-4 px-8 rounded-[50px] hover:bg-teal-500 ${active === "Mini Police Car"? "bg-teal-500" : ""}`}
+                >
+                    Mini Police Car
+                </button>
+                <button
+                    onClick={() => handleActiveTab("Mini Fire Truck")}
+                    className={`border-2 duration-500 border-teal-500 py-4 px-8 rounded-[50px] hover:bg-teal-500 ${active === "Mini Fire Truck"? "bg-teal-500" : ""}`}
+                >
+                    Mini Fire Truck
+                </button>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {
+                    cars.map(car => <SubCategoryCard key={car._id} car={car}></SubCategoryCard>)
+                }
             </div>
         </div>
     );
