@@ -1,10 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProviders/AuthProviders";
 import MyToysRow from "./MyToysRow";
+import UpdateToyModal from "./UpdateToyModal";
 
 
 const MyToys = () => {
     const [myToys, setMyToys] = useState([]);
+    const [toy, setToy] = useState({});
 
     const { user } = useContext(AuthContext);
 
@@ -18,6 +20,30 @@ const MyToys = () => {
                 setMyToys(data)
             })
     }, [url])
+
+    const handleOpenModalForUpdate = id => {
+        fetch(`http://localhost:5000/toy/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                setToy(data)
+                console.log(data)
+            })
+    }
+
+    const handleDelete = id => {
+        fetch(`http://localhost:5000/toys/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.deletedCount > 0) {
+                    alert("Toy Removed!")
+                    const remaining = myToys.filter(toy => toy._id !== id);
+                    setMyToys(remaining);
+                }
+            })
+    }
     return (
         <div>
             <div>
@@ -39,12 +65,17 @@ const MyToys = () => {
                         </thead>
                         <tbody>
                             {
-                                myToys.map((toy, idx) => <MyToysRow key={toy._id} toy={toy} idx={idx}></MyToysRow>)
+                                myToys.map((toy, idx) => <MyToysRow key={toy._id} toy={toy} idx={idx} handleDelete={handleDelete} handleOpenModalForUpdate={handleOpenModalForUpdate}></MyToysRow>)
                             }
                         </tbody>
 
                     </table>
                 </div>
+            </div>
+
+            {/* This is Modal for Update Toys Button  */}
+            <div>
+                <UpdateToyModal toy={toy} myToys={myToys} setMyToys={setMyToys}></UpdateToyModal>
             </div>
         </div>
     );
