@@ -37,7 +37,7 @@ const AllToys = () => {
                     </div>
                 </div>
             </div>
-            <div className="overflow-x-auto p-8">
+            <div data-aos="fade-up" className="overflow-x-auto p-8">
                 <table className="table table-compact w-full">
                     <thead>
                         <tr>

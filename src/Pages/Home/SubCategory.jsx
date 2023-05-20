@@ -19,8 +19,8 @@ const SubCategory = () => {
     }
     return (
         <div className='my-20 px-8'>
-            <h2 className="my-8 text-3xl font-bold text-center">Shob By Category</h2>
-            <div className="mx-auto font-bold flex flex-col md:flex-row justify-between items-center w-full md:w-3/4">
+            <h2 data-aos="fade-up" className="my-8 text-3xl font-bold text-center">Shob By Category</h2>
+            <div data-aos="fade-up" className="mx-auto font-bold flex flex-col md:flex-row justify-between items-center w-full md:w-3/4">
                 <button
                     onClick={() => handleActiveTab("All Cars")}
                     className={`border-2 duration-500 border-teal-500 py-4 px-8 rounded-[50px] hover:bg-teal-500 ${active === "All Cars"? "bg-teal-500" : ""}`}
