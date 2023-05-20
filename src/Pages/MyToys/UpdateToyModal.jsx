@@ -1,4 +1,4 @@
-
+import Swal from 'sweetalert2'
 import { useForm } from "react-hook-form";
 
 const UpdateToyModal = ({toy, setToy, myToys, setMyToys}) => {
@@ -34,8 +34,13 @@ const UpdateToyModal = ({toy, setToy, myToys, setMyToys}) => {
                     const newToys = [updated, ...remaining];
                     setMyToys(newToys);
                     setToy(updated);
-                    alert("Toy Updated Successfully!");
                     reset()
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Toy Updated Successfully!',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                      })
                 }
             })
 
