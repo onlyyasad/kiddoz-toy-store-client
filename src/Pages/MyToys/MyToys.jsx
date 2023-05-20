@@ -5,6 +5,7 @@ import UpdateToyModal from "./UpdateToyModal";
 import Swal from "sweetalert2";
 
 
+
 const MyToys = () => {
     const [myToys, setMyToys] = useState([]);
     const [toy, setToy] = useState({});
@@ -21,6 +22,16 @@ const MyToys = () => {
                 setMyToys(data)
             })
     }, [url])
+
+    const handleSort = event => {
+        const method = event.target.value;
+        fetch(`http://localhost:5000/myToysSort?email=${user?.email}&price=${method}`)
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                setMyToys(data)
+            })
+    }
 
     const handleOpenModalForUpdate = id => {
         fetch(`http://localhost:5000/toy/${id}`)
@@ -50,7 +61,7 @@ const MyToys = () => {
                     .then(data => {
                         // console.log(data)
                         if (data.deletedCount > 0) {
-                            
+
                             const remaining = myToys.filter(toy => toy._id !== id);
                             setMyToys(remaining);
                             Swal.fire(
@@ -60,16 +71,18 @@ const MyToys = () => {
                             )
                         }
                     })
-                
+
             }
         })
-
-
     }
     return (
         <div>
-            <div>
-                <h1>My toys: {myToys.length}</h1>
+            <div className="flex justify-center items-center mt-8">
+                <select onChange={handleSort} className="select select-bordered">
+                    <option selected disabled>Sort by Price</option>
+                    <option value="ascending">Ascending</option>
+                    <option value="descending">Descending</option>
+                </select>
             </div>
             <div>
                 <div className="overflow-x-auto p-8">
@@ -80,7 +93,7 @@ const MyToys = () => {
                                 <th>Toy Name</th>
                                 <th>Sub Category</th>
                                 <th>Price</th>
-                                <th>Available Quantity</th>
+                                <th>Available <br /> Quantity</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
