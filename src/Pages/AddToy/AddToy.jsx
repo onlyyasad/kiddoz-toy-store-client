@@ -2,10 +2,12 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../AuthProviders/AuthProviders";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const AddToy = () => {
     const { user } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    useTitle("Add a Toy")
     const onSubmit = data => {
         if (data.sub_category === "Sports Car") {
             data.sub_category_id = "a"
@@ -25,7 +27,7 @@ const AddToy = () => {
 
         console.log(data)
 
-        fetch('http://localhost:5000/toys', {
+        fetch('https://assignment-11-server-umber.vercel.app/toys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

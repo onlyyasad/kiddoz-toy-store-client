@@ -1,3 +1,4 @@
+import useTitle from "../../hooks/useTitle";
 import ToysRow from "./ToysRow";
 import { useEffect, useState } from "react";
 
@@ -5,9 +6,10 @@ import { useEffect, useState } from "react";
 const AllToys = () => {
     const [toys, setToys] = useState([]);
     const [searchText, setSearchText] = useState("");
+    useTitle("All Toys")
 
     useEffect(() => {
-        fetch("http://localhost:5000/allToys?limit=20")
+        fetch("https://assignment-11-server-umber.vercel.app/allToys?limit=20")
             .then(res => res.json())
             .then(data => {
                 setToys(data)
@@ -15,7 +17,7 @@ const AllToys = () => {
     }, []);
 
     const handleSearch = () => {
-        fetch(`http://localhost:5000/getToysByText/${searchText}`)
+        fetch(`https://assignment-11-server-umber.vercel.app/getToysByText/${searchText}`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);

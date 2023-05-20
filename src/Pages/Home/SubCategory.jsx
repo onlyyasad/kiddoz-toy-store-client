@@ -7,7 +7,7 @@ const SubCategory = () => {
     const [active, setActive] = useState("All Cars");
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/toys/${active}`)
+        fetch(`https://assignment-11-server-umber.vercel.app/toys/${active}`)
         .then(res => res.json())
         .then(data => {
             setCars(data)

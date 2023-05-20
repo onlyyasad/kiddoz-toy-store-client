@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: "toy/:id",
         element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment-11-server-umber.vercel.app/toy/${params.id}`)
       },
       {
         path: "login",

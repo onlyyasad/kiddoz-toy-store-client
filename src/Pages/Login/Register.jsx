@@ -7,7 +7,7 @@ import { AuthContext } from '../../AuthProviders/AuthProviders';
 const Register = () => {
     const [error, setError] = useState("");
 
-    const { createUser, updateUserData, logOutUser } = useContext(AuthContext);
+    const { createUser, updateUserData } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
@@ -24,12 +24,9 @@ const Register = () => {
             .then(result => {
                 form.reset();
                 const user = result.user;
-
                 updateUserData(user, name, photo)
                     .then(() => { })
                     .catch(error => { console.log(error.message) })
-
-                logOutUser();
                 navigate("/login")
             })
             .catch(error => setError(error.message));

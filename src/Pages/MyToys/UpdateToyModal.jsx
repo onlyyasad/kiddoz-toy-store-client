@@ -12,7 +12,7 @@ const UpdateToyModal = ({toy, setToy, myToys, setMyToys}) => {
 
         // console.log(data)
 
-        fetch(`http://localhost:5000/toys/${id}`, {
+        fetch(`https://assignment-11-server-umber.vercel.app/toys/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

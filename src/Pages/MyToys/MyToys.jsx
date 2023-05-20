@@ -3,6 +3,7 @@ import { AuthContext } from "../../AuthProviders/AuthProviders";
 import MyToysRow from "./MyToysRow";
 import UpdateToyModal from "./UpdateToyModal";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 
 
@@ -10,9 +11,11 @@ const MyToys = () => {
     const [myToys, setMyToys] = useState([]);
     const [toy, setToy] = useState({});
 
+    useTitle('My Toys')
+
     const { user } = useContext(AuthContext);
 
-    const url = `http://localhost:5000/myToys?email=${user?.email}`;
+    const url = `https://assignment-11-server-umber.vercel.app/myToys?email=${user?.email}`;
 
     useEffect(() => {
         fetch(url)
@@ -25,7 +28,7 @@ const MyToys = () => {
 
     const handleSort = event => {
         const method = event.target.value;
-        fetch(`http://localhost:5000/myToysSort?email=${user?.email}&price=${method}`)
+        fetch(`https://assignment-11-server-umber.vercel.app/myToysSort?email=${user?.email}&price=${method}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
@@ -34,7 +37,7 @@ const MyToys = () => {
     }
 
     const handleOpenModalForUpdate = id => {
-        fetch(`http://localhost:5000/toy/${id}`)
+        fetch(`https://assignment-11-server-umber.vercel.app/toy/${id}`)
             .then(res => res.json())
             .then(data => {
                 setToy(data)
@@ -54,7 +57,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/toys/${id}`, {
+                fetch(`https://assignment-11-server-umber.vercel.app/toys/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

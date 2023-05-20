@@ -1,8 +1,11 @@
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const ToyDetails = () => {
     const toy = useLoaderData();
-    const { img, name, seller_name, seller_email, price, rating, available_quantity, description } = toy;
+    
+    const { _id, img, name, seller_name, seller_email, price, rating, available_quantity, description } = toy;
+    useTitle(`Toy | ${_id}`)
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">

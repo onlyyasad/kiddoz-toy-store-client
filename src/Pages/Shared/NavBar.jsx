@@ -16,9 +16,12 @@ const NavBar = () => {
     const menuItems = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/allToys">All Toys</Link></li>
-        <li><Link to="/myToys">My Toys</Link></li>
-        <li><Link to="/addToy">Add a Toy</Link></li>
+        {user && <>
+            <li><Link to="/myToys">My Toys</Link></li>
+            <li><Link to="/addToy">Add a Toy</Link></li>
+        </>}
         <li><Link to="/blogs">Blogs</Link></li>
+        {user && <button onClick={() => logOutUser()} className='lg:hidden justify-center items-center text-center border border-teal-900  hover:bg-teal-900 hover:text-white py-2 px-4 duration-500 text-teal-950'>Logout</button>}
     </>
     return (
         <div className="navbar bg-teal-50">
