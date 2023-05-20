@@ -16,7 +16,7 @@ const MyToys = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 setMyToys(data)
             })
     }, [url])
@@ -26,7 +26,7 @@ const MyToys = () => {
             .then(res => res.json())
             .then(data => {
                 setToy(data)
-                console.log(data)
+                // console.log(data)
             })
     }
 
@@ -36,7 +36,7 @@ const MyToys = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.deletedCount > 0) {
                     alert("Toy Removed!")
                     const remaining = myToys.filter(toy => toy._id !== id);
@@ -75,7 +75,7 @@ const MyToys = () => {
 
             {/* This is Modal for Update Toys Button  */}
             <div>
-                <UpdateToyModal toy={toy} myToys={myToys} setMyToys={setMyToys}></UpdateToyModal>
+                <UpdateToyModal toy={toy} setToy={setToy} myToys={myToys} setMyToys={setMyToys}></UpdateToyModal>
             </div>
         </div>
     );

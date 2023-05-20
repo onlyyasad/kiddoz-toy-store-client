@@ -1,12 +1,16 @@
+
 import { useForm } from "react-hook-form";
 
-const UpdateToyModal = ({toy, myToys, setMyToys}) => {
+const UpdateToyModal = ({toy, setToy, myToys, setMyToys}) => {
+    // const [modalToy, setModalToy] = useState(toy);
     const id = toy?._id;
+    console.log(toy)
+    // console.log(modalToy)
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = data => {
 
-        console.log(data)
+        // console.log(data)
 
         fetch(`http://localhost:5000/toys/${id}`, {
             method: 'PUT',
@@ -17,13 +21,19 @@ const UpdateToyModal = ({toy, myToys, setMyToys}) => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result)
+                // console.log(result)
                 if(result.modifiedCount > 0){
                     // state update
                     const remaining = myToys.filter(toy => toy._id !== id);
                     const updated = myToys.find(toy => toy._id === id);
+                    updated.name = data.name;
+                    updated.price = data.price;
+                    updated.rating = data.rating;
+                    updated.available_quantity = data.available_quantity;
+                    updated.description = data.description;
                     const newToys = [updated, ...remaining];
                     setMyToys(newToys);
+                    setToy(updated);
                     alert("Toy Updated Successfully!");
                     reset()
                 }
@@ -67,7 +77,7 @@ const UpdateToyModal = ({toy, myToys, setMyToys}) => {
                         <input className="p-4 w-full border-2 border-teal-500 font-bold rounded-[50px] hover:bg-teal-500 duration-500" type="submit" value="Update" />
                     </form>
                     <div className="modal-action">
-                        <label htmlFor="my-modal-5" className="btn">Cancel</label>
+                        <label htmlFor="my-modal-5" className="btn btn-circle">X</label>
                     </div>
                 </div>
             </div>
