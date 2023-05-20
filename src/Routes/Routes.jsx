@@ -11,6 +11,7 @@ import AddToy from "../Pages/AddToy/AddToy";
 import PrivateRoute from "./PrivateRoute";
 import MyToys from "../Pages/MyToys/MyToys";
 import Blogs from "../Pages/Blogs/Blogs";
+import ErrorPage from "../Pages/Error/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -54,7 +55,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <h1 className="min-h-screen text-center my-20 font-bold">404 Not Found</h1>
+    element: <ErrorPage></ErrorPage>
   }
 ]);
 
