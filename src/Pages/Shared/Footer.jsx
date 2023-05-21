@@ -1,34 +1,57 @@
-
-import fav from '../../assets/fav.svg'
+import logo from "../../assets/logo.svg"
+import { FaFacebookF, FaInstagram, FaPinterest, FaTwitter } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-base-200 text-base-content">
-            <div>
-                <img className='w-1/2' src={fav} alt="" />
-                <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
+        <div className='bg-gray-900'>
+            <div className='container px-4 mx-auto py-16 text-white'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+
+                    <div>
+                        <div className='grid grid-cols-2 md:grid-cols-3 gap-4'>
+                            <div>
+                                <img className="w-[75%]" src={logo} alt="" />
+                                <p className="mt-4">Kiddoz Toy Store LLC.</p>
+                                <p className="mb-4">+012 356 456 88</p>
+                            </div>
+                            <div>
+                                <h2 className='font-Quicksand text-2xl my-4'>About Us</h2>
+                                <ul>
+                                    <li><Link>Our Story</Link> </li>
+                                    <li><Link>Contact</Link> </li>
+                                    <li><Link>Terms & Conditions</Link> </li>
+                                    <li><Link>Cookies Policy</Link> </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h2 className='font-Quicksand text-2xl my-4'>Follow Us</h2>
+                                <p>Follow us on our social media handles now!</p>
+                                <div className='flex gap-4 mt-4'>
+                                    <Link><FaFacebookF /></Link>
+                                    <Link><FaTwitter /></Link>
+                                    <Link><FaInstagram /></Link>
+                                    <Link><FaPinterest /></Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="">
+                        <h2 className='font-Quicksand text-2xl my-4'>Subscribe to Newsletter!</h2>
+                        <p>Subscribe to our newsletter got get the latest recipe updates regularly!</p>
+                        <div className="my-4">
+                            <input type="email" placeholder="Your email address" className="input border-none rounded-none text-black" />
+                            <button className="btn bg-black font-serif font-normal normal-case border-none rounded-none">
+                                Subscribe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div className='pt-8'>
+                    <p>© Copyright: Kiddoz 2023</p>
+                </div>
             </div>
-            <div>
-                <span className="footer-title">Services</span>
-                <a className="link link-hover">Branding</a>
-                <a className="link link-hover">Design</a>
-                <a className="link link-hover">Marketing</a>
-                <a className="link link-hover">Advertisement</a>
-            </div>
-            <div>
-                <span className="footer-title">Company</span>
-                <a className="link link-hover">About us</a>
-                <a className="link link-hover">Contact</a>
-                <a className="link link-hover">Jobs</a>
-                <a className="link link-hover">Press kit</a>
-            </div>
-            <div>
-                <span className="footer-title">Legal</span>
-                <a className="link link-hover">Terms of use</a>
-                <a className="link link-hover">Privacy policy</a>
-                <a className="link link-hover">Cookie policy</a>
-            </div>
-        </footer>
+        </div>
     );
 };
 

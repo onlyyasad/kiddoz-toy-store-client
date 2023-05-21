@@ -10,13 +10,13 @@ const OfferSection = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen" style={{ backgroundImage: 'url("https://i.ibb.co/RQbB4rg/offerbg.jpg")' }}>
-                <div className="hero-overlay bg-[#FEBF00] bg-opacity-80"></div>
+            <div className="hero py-8 md:min-h-screen">
+                <div className="hero-overlay bg-base-100"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-screen-sm">
                         <h1 className="mb-5 text-3xl md:text-5xl font-Quicksand text-black font-bold">15% Discount on all Sports Car Toys</h1>
                         <p className="mb-5 text-xl text-black">Offer Expires On</p>
-                        <div className='bg-[#FF503A] w-full flex justify-center items-center gap-4 md:gap-6 px-4 py-8 lg:px-10 lg:py-12 bg-opacity-90 rounded-xl lg:rounded-3xl'>
+                        <div className='bg-[#FF503A] w-full flex justify-center items-center gap-4 md:gap-6 px-4 py-8 lg:px-10 lg:py-12 rounded-xl lg:rounded-3xl'>
                             <div>
                                 <p className='text-3xl md:text-7xl'>{days}</p>
                                 <p className='text-sm md:text-base'>Days</p>
@@ -37,7 +37,7 @@ const OfferSection = () => {
                                 <p className='text-sm md:text-base'>Seconds</p>
                             </div>
                         </div>
-                        <button className="py-4 px-10 mt-8 bg-white text-black font-bold duration-500 rounded-[50px] hover:bg-[#FF503A]">Shop Now!</button>
+                        <button className="py-4 px-10 mt-8 bg-[#FF503A] text-black font-bold duration-500 rounded-[50px]  hover:bg-[#FEBF00]">Shop Now!</button>
                     </div>
                 </div>
             </div>

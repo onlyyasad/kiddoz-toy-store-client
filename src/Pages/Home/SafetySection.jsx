@@ -3,17 +3,20 @@ import { BsBoxes, BsRecycle } from "react-icons/bs";
 
 const SafetySection = () => {
     return (
-        <div className="">
-            <div className="pt-8 bg-[#FF523B]">
-                <div className="flex flex-col lg:flex-row">
+        <div className="bg-[#FF523B]">
+            <div className="pt-8 container mx-auto">
+                <div className="flex flex-col-reverse lg:flex-row">
                     <div className="lg:w-1/4">
-                        <img src="https://i.ibb.co/cLGB67V/safety.png" className="max-w-sm" />
+                        <div className="flex justify-center ">
+
+                            <img src="https://i.ibb.co/cLGB67V/safety.png" className="max-w-sm" />
+                        </div>
                     </div>
-                    <div className="flex justify-center items-center pb-4 lg:w-3/4">
+                    <div className="flex justify-center items-center ml-2 p-4 lg:w-3/4">
                         <div className="text-white space-y-6">
-                            <h1 className="text-5xl font-Quicksand font-bold">Safe Toys For Children</h1>
+                            <h1 className="text-3xl md:text-5xl font-Quicksand font-bold">Safe Toys For Children</h1>
                             <div className="flex items-center gap-8">
-                                <AiOutlineRocket className="text-5xl font-light"/>
+                                <AiOutlineRocket className="text-5xl font-light" />
                                 <p className="text-xl">Beautiful & Well Designed</p>
                             </div>
                             <div className="flex items-center gap-8">
