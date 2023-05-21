@@ -3,52 +3,49 @@ import { AuthContext } from '../../AuthProviders/AuthProviders';
 import logo from '../../assets/logo.svg'
 import { Link } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
+import ActiveLink from '../../utility/ActiveLink';
 
 const NavBar = () => {
     const { user, logOutUser } = useContext(AuthContext);
 
-    if (user) {
-        // const displayName = user.displayName;
-        // const email = user.email;
-        // const photoURL = user.photoURL;
-    }
-
     const menuItems = <>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/allToys">All Toys</Link></li>
+        <p className='hover:text-[#FF503A] duration-300'><Link to="/">Home</Link></p>
+        <p className='hover:text-[#FF503A] duration-300'><ActiveLink to="/allToys">All Toys</ActiveLink></p>
         {user && <>
-            <li><Link to="/myToys">My Toys</Link></li>
-            <li><Link to="/addToy">Add a Toy</Link></li>
+            <p className='hover:text-[#FF503A] duration-300'><ActiveLink to="/myToys">My Toys</ActiveLink></p>
+            <p className='hover:text-[#FF503A] duration-300'><ActiveLink to="/addToy">Add a Toy</ActiveLink></p>
         </>}
-        <li><Link to="/blogs">Blogs</Link></li>
-        {user && <button onClick={() => logOutUser()} className='lg:hidden justify-center items-center text-center border border-teal-900  hover:bg-teal-900 hover:text-white py-2 px-4 duration-500 text-teal-950'>Logout</button>}
+        <p className='hover:text-[#FF503A] duration-300'><ActiveLink to="/blogs">Blogs</ActiveLink></p>
+        {user && <button onClick={() => logOutUser()} className='lg:hidden justify-center items-center text-center border-2 rounded-[50px] border-[#FF503A]  hover:bg-[#FF503A] hover:text-white py-2 px-6 duration-500 font-semibold text-[#FF503A]'>Logout</button>}
     </>
     return (
-        <div className="navbar bg-teal-50">
-            <div className="navbar-start">
-                <div className="dropdown">
-                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                    </label>
-                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        {menuItems}
-                    </ul>
-                </div>
-                <img className='w-[150px]' src={logo} alt="" />
-            </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    {menuItems}
-                </ul>
-            </div>
-            <div className="navbar-end gap-2">
-                {user ? <>
-                    <button onClick={() => logOutUser()} className=' hidden lg:inline-flex justify-center items-center text-center border border-teal-900  hover:bg-teal-900 hover:text-white py-2 px-4 duration-500 text-teal-950'>Logout</button>
-                    <div className='bg-gray-100 rounded-full p-1 '>
-                        {user.photoURL ? <img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" title={user?.displayName} /> : <FaUser className='w-10 h-10 rounded-full' title={user?.displayName} />}
+        <div className='bg-teal-50'>
+            <div className="navbar container mx-auto">
+                <div className="navbar-start">
+                    <div className="dropdown">
+                        <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                        </label>
+                        <div tabIndex={0} className="menu menu-compact font-Quicksand font-bold gap-4 dropdown-content mt-3 p-2 shadow bg-base-100  w-52">
+                            {menuItems}
+                        </div>
                     </div>
-                </> :
-                    <Link to='/login' className=' inline-flex items-center text-center border border-teal-900  hover:bg-teal-900 hover:text-white py-2 px-4 duration-500 text-teal-950'>Login</Link>}
+                    <img className='w-[150px]' src={logo} alt="" />
+                </div>
+                <div className="navbar-center hidden lg:flex">
+                    <div className="menu gap-6 font-Quicksand font-bold menu-horizontal px-1">
+                        {menuItems}
+                    </div>
+                </div>
+                <div className="navbar-end gap-2">
+                    {user ? <>
+                        <button onClick={() => logOutUser()} className='hidden lg:inline-flex justify-center items-center text-center border-2 rounded-[50px] border-[#FF503A]  hover:bg-[#FF503A] hover:text-white py-2 px-6 duration-500 font-semibold text-[#FF503A]'>Logout</button>
+                        <div className='bg-gray-100 rounded-full p-1 '>
+                            {user.photoURL ? <img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" title={user?.displayName} /> : <FaUser className='w-10 h-10 rounded-full' title={user?.displayName} />}
+                        </div>
+                    </> :
+                        <Link to='/login' className='hidden lg:inline-flex justify-center items-center text-center border-2 rounded-[50px] border-[#FF503A]  hover:bg-[#FF503A] hover:text-white py-2 px-6 duration-500 font-semibold text-[#FF503A]'>Login</Link>}
+                </div>
             </div>
         </div>
     );
