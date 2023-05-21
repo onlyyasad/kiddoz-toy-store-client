@@ -38,10 +38,10 @@ const Footer = () => {
                     </div>
                     <div className="">
                         <h2 className='font-Quicksand text-2xl my-4'>Subscribe to Newsletter!</h2>
-                        <p>Subscribe to our newsletter got get the latest recipe updates regularly!</p>
+                        <p>Subscribe to our newsletter got get the latest offer on toys updates regularly!</p>
                         <div className="my-4">
-                            <input type="email" placeholder="Your email address" className="input border-none rounded-none text-black" />
-                            <button className="btn bg-black font-serif font-normal normal-case border-none rounded-none">
+                            <input type="email" placeholder="Your email address" className="input border-none rounded-none rounded-s-3xl text-black" />
+                            <button className="btn bg-black rounded-e-3xl font-normal normal-case border-none rounded-none">
                                 Subscribe
                             </button>
                         </div>
