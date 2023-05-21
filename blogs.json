@@ -1,0 +1,30 @@
+[
+    {
+        "question" : "What is an access token and refresh token? How do they work and where should we store them on the client-side?",
+        "answer": "An access token is like a permission slip that allows a user to access certain things for a limited time. It's a short-lived pass. A refresh token is a special pass that can be used to get a new access token when the old one expires. Refresh tokens are important and should be stored in a safe place, like a locked box, to prevent unauthorized access.",
+        "author": "Hafij Al Asad",
+        "author_img": "https://randomuser.me/api/portraits/men/21.jpg",
+        "published": "25-4-23"
+    },
+    {
+        "question" : "Compare SQL and NoSQL databases.",
+        "answer": "SQL databases use structured tables with predefined schemas. Suitable for applications with well-defined data structures and complex queries. Scaling can be challenging. On the other hand, NoSQL databases flexible data models without strict schemas. Suitable for handling large amounts of data, high traffic, and dynamic data structures. Designed for horizontal scalability.",
+        "author": "Hafij Al Asad",
+        "author_img": "https://randomuser.me/api/portraits/men/21.jpg",
+        "published": "25-4-23"
+    },
+    {
+        "question" : "What is express JS? What is Nest JS ?",
+        "answer": "Express.js is a simple and flexible framework of Node JS for building web applications in JavaScript. It helps in handling HTTP requests and building web servers. It is lightweight and easy to use. Nest.js is a powerful framework for building server-side applications in TypeScript. It is built on top of Express.js, adding more features and structure. It provides a structured architecture and supports scalability.",
+        "author": "Hafij Al Asad",
+        "author_img": "https://randomuser.me/api/portraits/men/21.jpg",
+        "published": "25-4-23"
+    },
+    {
+        "question" : "What is MongoDB aggregate and how does it work?",
+        "answer": "In MongoDB, the aggregate operation is used to perform advanced data processing and analysis tasks. It takes a series of steps, called stages, to filter, group, and manipulate data. These stages include matching documents, grouping them, reshaping fields, sorting, and more. The result is a set of aggregated data that can be used for complex queries and calculations.",
+        "author": "Hafij Al Asad",
+        "author_img": "https://randomuser.me/api/portraits/men/21.jpg",
+        "published": "25-4-23"
+    }
+]

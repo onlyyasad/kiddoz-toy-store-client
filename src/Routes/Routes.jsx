@@ -49,7 +49,8 @@ const router = createBrowserRouter([
       },
       {
         path: "blogs",
-        element: <Blogs></Blogs>
+        element: <Blogs></Blogs>,
+        loader: () => fetch("https://assignment-11-server-umber.vercel.app/blogs")
       }
     ]
   },
