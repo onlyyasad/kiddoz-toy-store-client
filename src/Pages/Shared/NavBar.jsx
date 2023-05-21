@@ -41,7 +41,7 @@ const NavBar = () => {
                     {user ? <>
                         <button onClick={() => logOutUser()} className='hidden lg:inline-flex justify-center items-center text-center border-2 rounded-[50px] border-[#FF503A]  hover:bg-[#FF503A] hover:text-white py-2 px-6 duration-500 font-semibold text-[#FF503A]'>Logout</button>
                         <div className='bg-gray-100 rounded-full p-1 '>
-                            {user.photoURL ? <img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" title={user?.displayName} /> : <FaUser className='w-10 h-10 rounded-full' title={user?.displayName} />}
+                            {user.photoURL ? <img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" title={user?.displayName} /> : <FaUser className='w-10 h-10 text-[#FF503A] rounded-full' title={user?.displayName} />}
                         </div>
                     </> :
                         <Link to='/login' className='justify-center items-center text-center border-2 rounded-[50px] border-[#FF503A]  hover:bg-[#FF503A] hover:text-white py-2 px-6 duration-500 font-semibold text-[#FF503A]'>Login</Link>}

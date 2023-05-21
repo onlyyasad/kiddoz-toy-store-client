@@ -40,22 +40,22 @@ const Login = () => {
     }
 
     return (
-        <div className="min-h-screen py-8 flex justify-center items-center bg-base-200">
+        <div className="min-h-screen py-8 flex justify-center items-center bg-gradient-to-b from-teal-50">
             <div className="flex flex-col lg:w-[33%] gap-4">
-                <div className="card rounded-none  w-full  bg-base-100">
+                <div className="card rounded-lg shadow-lg w-full  bg-base-100">
                     <form onSubmit={handleLoginWithEmailPassword} className="card-body">
-                        <h1 className="text-4xl text-teal-500 mb-4 text-center ">Login now!</h1>
+                        <h1 className="text-3xl text-teal-500 font-bold font-Quicksand mb-4 text-center ">Login now!</h1>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name='email' required placeholder="email" className="input input-bordered rounded-none" />
+                            <input type="email" name='email' required placeholder="email" className="input input-bordered rounded-[50px]" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name='password' required placeholder="password" className="input input-bordered rounded-none" />
+                            <input type="password" name='password' required placeholder="password" className="input input-bordered rounded-[50px]" />
                             <label className="label gap-3">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 <Link to='/register' className="label-text-alt link link-hover">Don&apos;t have an Account? Register</Link>
@@ -65,14 +65,14 @@ const Login = () => {
                             <p className='label-text-alt text-red-600'>{error}</p>
                         </label>}
                         <div className="form-control gap-4 mt-6">
-                            <button type='submit' className=" text-center border border-teal-500  hover:bg-teal-500 hover:text-white py-2 px-4 duration-500 text-teal-950">Login</button>
+                            <button type='submit' className=" text-center border border-teal-500  hover:bg-teal-500 hover:text-white py-2 px-4 duration-500 rounded-[50px] font-semibold text-teal-950">Login</button>
                             <div className="flex flex-col w-full border-opacity-50">
 
                                 <div className="divider">OR</div>
 
                             </div>
                             <div className='flex flex-col gap-3 lg:gap-2 lg:flex-row justify-center'>
-                                <button onClick={handleGoogleLogin} className="border px-2 py-2 font-semibold normal-case flex justify-center items-center gap-2"><FaGoogle /> Sign In with Google</button>
+                                <button onClick={handleGoogleLogin} className="border px-6 py-2 font-semibold normal-case flex justify-center rounded-[50px] items-center gap-2"><FaGoogle className='text-blue-500'/> Sign In with Google</button>
                             </div>
                         </div>
                     </form>

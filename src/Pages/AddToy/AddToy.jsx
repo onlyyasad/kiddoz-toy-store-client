@@ -8,6 +8,7 @@ const AddToy = () => {
     const { user } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     useTitle("Add a Toy")
+
     const onSubmit = data => {
         if (data.sub_category === "Sports Car") {
             data.sub_category_id = "a"
@@ -25,7 +26,9 @@ const AddToy = () => {
             data.sub_category_id = "e"
         }
 
-        console.log(data)
+        
+
+        // Post operation for adding a toy :
 
         fetch('https://assignment-11-server-umber.vercel.app/toys', {
             method: 'POST',
@@ -36,7 +39,7 @@ const AddToy = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result)
+                
                 if(result.insertedId){
                     Swal.fire({
                         title: 'Success!',
@@ -59,23 +62,23 @@ const AddToy = () => {
                 {/* register your input into the hook by invoking the "register" function */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <input className="p-4 w-full" placeholder="Photo URL" {...register("img", { required: true })} />
+                        <input className="p-4 rounded-lg w-full" placeholder="Photo URL" {...register("img", { required: true })} />
                         {errors.img && <span>This field is required</span>}
                     </div>
                     <div>
-                        <input className="p-4 w-full" placeholder="Toy Name" {...register("name", { required: true })} />
+                        <input className="p-4 rounded-lg w-full" placeholder="Toy Name" {...register("name", { required: true })} />
                         {errors.name && <span>This field is required</span>}
                     </div>
                     <div>
-                        <input className="p-4 w-full" value={user?.displayName} {...register("seller_name", { required: true })} />
+                        <input className="p-4 rounded-lg w-full" value={user?.displayName} {...register("seller_name", { required: true })} />
                         {errors.seller_name && <span>This field is required</span>}
                     </div>
                     <div>
-                        <input className="p-4 w-full" value={user?.email} {...register("seller_email", { required: true })} />
+                        <input className="p-4 rounded-lg w-full" value={user?.email} {...register("seller_email", { required: true })} />
                         {errors.seller_email && <span>This field is required</span>}
                     </div>
                     <div>
-                        <select className="p-4 w-full" {...register("sub_category")}>
+                        <select className="p-4 rounded-lg w-full" {...register("sub_category")}>
                             <option value="Sports Car">Sports Car</option>
                             <option value="Truck">Truck</option>
                             <option value="Regular Car">Regular Car</option>
@@ -84,20 +87,20 @@ const AddToy = () => {
                         </select>
                     </div>
                     <div>
-                        <input type="number" className="p-4 w-full" placeholder="Price" {...register("price", { required: true, valueAsNumber: true })} />
+                        <input type="number" className="p-4 rounded-lg w-full" placeholder="Price" {...register("price", { required: true, valueAsNumber: true })} />
                         {errors.price && <span>This field is required</span>}
                     </div>
                     <div>
-                        <input type="number" className="p-4 w-full" placeholder="Rating" {...register("rating", { required: true, valueAsNumber: true })} />
+                        <input type="number" className="p-4 rounded-lg w-full" placeholder="Rating" {...register("rating", { required: true, valueAsNumber: true })} />
                         {errors.rating && <span>This field is required</span>}
                     </div>
                     <div>
-                        <input type="number" className="p-4 w-full" placeholder="Quantity" {...register("available_quantity", { required: true, valueAsNumber: true })} />
+                        <input type="number" className="p-4 rounded-lg w-full" placeholder="Quantity" {...register("available_quantity", { required: true, valueAsNumber: true })} />
                         {errors.available_quantity && <span>This field is required</span>}
                     </div>
                 </div>
                 <div className="my-4">
-                    <textarea className="p-4 w-full" placeholder="Description" {...register("description", { required: true })} />
+                    <textarea className="p-4 rounded-lg w-full" placeholder="Description" {...register("description", { required: true })} />
                     {errors.description && <span>This field is required</span>}
                 </div>
                 <input className="p-4 w-full border-2 border-teal-500 font-bold rounded-[50px] hover:bg-teal-500 duration-500" type="submit" value="Add Toy" />

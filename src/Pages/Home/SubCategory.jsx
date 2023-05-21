@@ -21,6 +21,7 @@ const SubCategory = () => {
         <div className='container mx-auto my-20 px-8'>
             <h2 data-aos="fade-up" className="my-8 text-3xl md:text-5xl font-Quicksand font-bold text-center">Shop By Category</h2>
             <div data-aos="fade-up" className="mx-auto py-8 font-bold flex flex-wrap md:flex-row gap-4 md:gap-0  md:justify-between items-center w-full md:w-3/4">
+                {/* buttons for changing toy category  */}
                 <button
                     onClick={() => handleActiveTab("All Cars")}
                     className={`border-2 duration-500 border-teal-500 py-4 px-8 rounded-[50px] hover:bg-teal-500 ${active === "All Cars"? "bg-teal-500" : ""}`}

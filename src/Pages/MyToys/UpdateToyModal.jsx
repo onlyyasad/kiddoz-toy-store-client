@@ -55,34 +55,34 @@ const UpdateToyModal = ({toy, setToy, myToys, setMyToys}) => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <p className="mb-2 font-semibold">Name</p>
-                                <input className="p-4 w-full" placeholder={toy?.name} {...register("name", { required: true })} />
+                                <input className="p-4 rounded-lg w-full" placeholder={toy?.name} {...register("name", { required: true })} />
                                 {errors.name && <span>This field is required</span>}
                             </div>
                             <div>
                                 <p className="mb-2 font-semibold">Price</p>
-                                <input type="number" className="p-4 w-full" placeholder={toy?.price} {...register("price", { required: true, valueAsNumber: true })} />
+                                <input type="number" className="p-4 rounded-lg w-full" placeholder={toy?.price} {...register("price", { required: true, valueAsNumber: true })} />
                                 {errors.price && <span>This field is required</span>}
                             </div>
                             <div>
                                 <p className="mb-2 font-semibold">Rating</p>
-                                <input type="number" className="p-4 w-full" placeholder={toy?.rating} {...register("rating", { required: true, valueAsNumber: true })} />
+                                <input type="number" className="p-4 rounded-lg w-full" placeholder={toy?.rating} {...register("rating", { required: true, valueAsNumber: true })} />
                                 {errors.rating && <span>This field is required</span>}
                             </div>
                             <div>
                                 <p className="mb-2 font-semibold">Available Quantity</p>
-                                <input type="number" className="p-4 w-full" placeholder={toy?.available_quantity} {...register("available_quantity", { required: true, valueAsNumber: true })} />
+                                <input type="number" className="p-4 rounded-lg w-full" placeholder={toy?.available_quantity} {...register("available_quantity", { required: true, valueAsNumber: true })} />
                                 {errors.available_quantity && <span>This field is required</span>}
                             </div>
                         </div>
                         <div className="my-4">
                             <p className="mb-2 font-semibold">Description</p>
-                            <textarea className="p-4 w-full" defaultValue={toy?.description} {...register("description", { required: true })} />
+                            <textarea className="p-4 rounded-lg w-full" defaultValue={toy?.description} {...register("description", { required: true })} />
                             {errors.description && <span>This field is required</span>}
                         </div>
                         <input className="p-4 w-full border-2 border-teal-500 font-bold rounded-[50px] hover:bg-teal-500 duration-500" type="submit" value="Update" />
                     </form>
                     <div className="modal-action">
-                        <label htmlFor="my-modal-5" className="btn btn-circle">X</label>
+                        <label htmlFor="my-modal-5" className="btn bg-[#FF503A] border-[#FF503A] hover:bg-white hover:border-[#FF503A] hover:text-[#FF503A] btn-circle">X</label>
                     </div>
                 </div>
             </div>

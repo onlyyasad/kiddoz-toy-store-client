@@ -15,7 +15,7 @@ const Gallery = () => {
     }, [])
 
 
-    console.log(cars)
+    
     return (
         <div className="bg-gradient-to-b from-teal-50">
             <div className="container mx-auto py-20 space-y-8">

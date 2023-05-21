@@ -79,41 +79,43 @@ const MyToys = () => {
         })
     }
     return (
-        <div>
-            <div className="flex justify-center items-center mt-8">
-                <select onChange={handleSort} className="select select-bordered">
-                    <option selected disabled>Sort by Price</option>
-                    <option value="ascending">Ascending</option>
-                    <option value="descending">Descending</option>
-                </select>
-            </div>
-            <div>
-                <div className="overflow-x-auto p-8">
-                    <table className="table table-compact w-full">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Toy Name</th>
-                                <th>Sub Category</th>
-                                <th>Price</th>
-                                <th>Available <br /> Quantity</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                myToys.map((toy, idx) => <MyToysRow key={toy._id} toy={toy} idx={idx} handleDelete={handleDelete} handleOpenModalForUpdate={handleOpenModalForUpdate}></MyToysRow>)
-                            }
-                        </tbody>
-
-                    </table>
+        <div className="bg-gradient-to-b from-teal-50">
+            <div className="container mb-20 mx-auto">
+                <div className="flex justify-center items-center py-20">
+                    <select onChange={handleSort} className="select select-bordered">
+                        <option selected disabled>Sort by Price</option>
+                        <option value="ascending">Ascending</option>
+                        <option value="descending">Descending</option>
+                    </select>
                 </div>
-            </div>
+                <div>
+                    <div className="overflow-x-auto p-4">
+                        <table className="table table-compact w-full">
+                            <thead>
+                                <tr>
+                                    <th className="normal-case ">No.</th>
+                                    <th className="normal-case ">Toy Name</th>
+                                    <th className="normal-case ">Sub Category</th>
+                                    <th className="normal-case ">Price</th>
+                                    <th className="normal-case ">Available <br /> Quantity</th>
+                                    <th className="normal-case ">Update</th>
+                                    <th className="normal-case ">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    myToys.map((toy, idx) => <MyToysRow key={toy._id} toy={toy} idx={idx} handleDelete={handleDelete} handleOpenModalForUpdate={handleOpenModalForUpdate}></MyToysRow>)
+                                }
+                            </tbody>
 
-            {/* This is Modal for Update Toys Button  */}
-            <div>
-                <UpdateToyModal toy={toy} setToy={setToy} myToys={myToys} setMyToys={setMyToys}></UpdateToyModal>
+                        </table>
+                    </div>
+                </div>
+
+                {/* This is Modal for Update Toys Button  */}
+                <div>
+                    <UpdateToyModal toy={toy} setToy={setToy} myToys={myToys} setMyToys={setMyToys}></UpdateToyModal>
+                </div>
             </div>
         </div>
     );
